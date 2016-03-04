@@ -3,34 +3,46 @@
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
 <html ng-app="meteocat">
-<head>
-    <!-- META -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+  <head>
+      <!-- META -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-    <title>App to show compare wheather forecast of two towns in Catalonia</title>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="main.js"></script>
+      <title>App to show compare wheather forecast of two towns in Catalonia</title>
+      <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+      <script src="/bower_components/angular/angular.js"></script>
+      <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+      <script src="main.js"></script>
 
-</head>
-<!-- SET THE CONTROLLER AND GET ALL TODOS -->
-<body ng-controller="mainController" ng-init="init()">
-  <div class="container">
-    Municipi: 
-    <select name="selectedTown" id="selectedTown" ng-model="selectedTown" ng-change="getTownForecast(selectedTown)">
-      <option ng-repeat="town in town_metadata" value="{{town.codi}}">{{town.nom}}</option>
-    </select>
-    <hr>
-    <tt>Municipi = {{selectedTown}}</tt><br/>
-    <tt>Comarca = {{selectedTown}}</tt><br/>
-    <tt>Data = {{selectedTown}}</tt><br/>
-    <tt>T max = {{selectedTown}}</tt><br/>
-    <tt>T min = {{selectedTown}}</tt><br/>
-    <tt>Estat cel = {{selectedTown}}</tt><br/>
-    <tt>Precipitacions = {{selectedTown}}</tt><br/>
-  </div>
-  
+  </head>
+  <body ng-controller="mainController" ng-init="init()">
+    <div class="container">
+    <div class="col-md-4 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="selectedTown">Municipi:</label>
+            <select class="form-control" name="selectedTown" id="selectedTown" ng-model="selectedTown" ng-change="getTownForecast(selectedTown)">
+              <option ng-repeat="town in town_metadata" value="{{town.codi}}">{{town.nom}}</option>
+            </select><br>
+            <label for="selectedRegion">Comarca:</label>
+            <h5 id="selectedRegion">{{town.region}}</h5>
+          </div>
+          <div class="row">
+            <uib-tabset active="active">
+              <uib-tab ng-repeat="dia in town.dies" index="$index + 1" heading="{{dia.data}}">
+                <tt>Tmax = {{dia.variables.tmax.valor}} {{dia.variables.tmax.unitats}}</tt><br/>
+                <tt>Tmin = {{dia.variables.tmin.valor}} {{dia.variables.tmin.unitats}}</tt><br/>
+                <tt>Estat del cel = {{dia.variables.estatCel.simbol}}</tt><br/>
+                <tt>Precipitacions = {{dia.variables.precipitacio.valor}} {{dia.variables.precipitacio.unitats}}</tt><br/>
+              </uib-tab>
+            </uib-tabset>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   </body>
 </html>
 

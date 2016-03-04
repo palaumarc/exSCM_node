@@ -1,7 +1,7 @@
-var meteocat = angular.module('meteocat',[]);
+var meteocat = angular.module('meteocat',['ui.bootstrap']);
 
 meteocat.controller('mainController', function($scope, $http) {
-    //Initialize expected form variables in order to avoid undefined values
+
     $scope.town_metadata = {};
     $scope.town = {};
 
@@ -19,7 +19,13 @@ meteocat.controller('mainController', function($scope, $http) {
     $scope.getTownForecast = function(id) {
         $http.get('/municipis/' + id).then(
             function success(response) {
-                console.log(response.data);
+                var town = $scope.town_metadata.find(function (obj) {
+                   return obj.codi === id;
+                });
+
+                $scope.town.name = town.nom;
+                $scope.town.region = town.comarca.nom;
+                $scope.town.dies = response.data.dies;
             }, 
             function error(response) {
                 console.error(response.data);
