@@ -14,7 +14,6 @@
       <script src="/bower_components/angular/angular.js"></script>
       <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="main.js"></script>
-
   </head>
   <body ng-controller="mainController" ng-init="init()">
     <div class="container">
@@ -32,10 +31,23 @@
           <div class="row">
             <uib-tabset active="active">
               <uib-tab ng-repeat="dia in town.dies" index="$index + 1" heading="{{dia.data}}">
-                <tt>Tmax = {{dia.variables.tmax.valor}} {{dia.variables.tmax.unitats}}</tt><br/>
-                <tt>Tmin = {{dia.variables.tmin.valor}} {{dia.variables.tmin.unitats}}</tt><br/>
-                <tt>Estat del cel = {{dia.variables.estatCel.simbol}}</tt><br/>
-                <tt>Precipitacions = {{dia.variables.precipitacio.valor}} {{dia.variables.precipitacio.unitats}}</tt><br/>
+                <div class="col-md-6">
+                  <br>
+                  <img src="/img/{{dia.variables.estatCel.simbol}}.png" class="img-responsive center-block" alt="Responsive image">
+                  <h3 class="text-center">Estat del cel</h3>
+                </div>
+                <div class="col-md-6">
+                  <div class"row">
+                    <h3 class="text-center">Precipitació</h3>
+                  </div>
+                  <div class"row">
+                      <uib-progressbar class="progress-striped active" value="dia.variables.precipitacio.valor">{{dia.variables.precipitacio.valor}} {{dia.variables.precipitacio.unitat}}</uib-progressbar>
+                  </div>
+                  <div class="row">
+                    <h2 class="text-danger text-center">{{dia.variables.tmax.valor}} {{dia.variables.tmax.unitats}}</h2>
+                    <h2 class="text-primary text-center">{{dia.variables.tmin.valor}} {{dia.variables.tmin.unitats}}</h2>
+                  </div>
+                </div>
               </uib-tab>
             </uib-tabset>
           </div>
