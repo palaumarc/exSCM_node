@@ -1,0 +1,36 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="meteocat">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>App to show compare wheather forecast of two towns in Catalonia</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="main.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="mainController" ng-init="init()">
+  <div class="container">
+    Municipi: 
+    <select name="selectedTown" id="selectedTown" ng-model="selectedTown" ng-change="getTownForecast(selectedTown)">
+      <option ng-repeat="town in town_metadata" value="{{town.codi}}">{{town.nom}}</option>
+    </select>
+    <hr>
+    <tt>Municipi = {{selectedTown}}</tt><br/>
+    <tt>Comarca = {{selectedTown}}</tt><br/>
+    <tt>Data = {{selectedTown}}</tt><br/>
+    <tt>T max = {{selectedTown}}</tt><br/>
+    <tt>T min = {{selectedTown}}</tt><br/>
+    <tt>Estat cel = {{selectedTown}}</tt><br/>
+    <tt>Precipitacions = {{selectedTown}}</tt><br/>
+  </div>
+  
+  </body>
+</html>
+
