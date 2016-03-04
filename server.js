@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
-var util = require('util');
+
+app.use(express.static(__dirname + '/static'));
 
 var metadata = null;
 var weather_forecast = null;
@@ -12,7 +13,7 @@ fs.readFile("data/metadades_municipis.json", 'utf8', function (err, data) {
 		console.log("Error loading metadata_municipals");
 		process.exit(1);
 	} else {
-		metadata = data;
+		metadata = JSON.parse(data);
 	}
 });
 
@@ -25,28 +26,21 @@ fs.readFile("data/prediccions_municipals.json", 'utf8', function (err, data) {
 	}
 });
 
-function getForecastFromId(id) {
-	var forecast = null;
-
-	weather_forecast.forEach(function (element) {
-		if (element['codi'] === id) {
-			forecast = element;
-		}
-	});
-
-	return forecast;
-}
-
 app.get('/municipis/metadades', function (req, res) {
-    console.log(metadata);
     res.send(metadata);
 })
 
 app.get('/municipis/:id', function (req, res) {
-	var forecast = getForecastFromId(req.params.id);
-    console.log(forecast);
+	var forecast = weather_forecast.find(function (obj) {
+	   return obj.codi === req.params.id;
+	});
+
     res.send(forecast);
 })
+
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/static/index.html'); 
+});
 
 var server = app.listen(8080, function () {
 
