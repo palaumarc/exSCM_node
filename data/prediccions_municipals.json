@@ -1,0 +1,165 @@
+[{
+	"codi": "082191",
+	"dies": [{
+		"data": "2016-01-01T00:00Z",
+		"variables": {
+			"precipitacio": {
+				"unitat": "%",
+				"valor": 34
+			},
+			"tmax": {
+				"unitats": "°C",
+				"valor": 14.9
+			},
+			"tmin": {
+				"unitats": "°C",
+				"valor": 7.6
+			},
+			"estatCel": {
+				"simbol": 3
+			}
+		}
+	}, {
+		"data": "2016-01-02T00:00Z",
+		"variables": {
+			"precipitacio": {
+				"unitat": "%",
+				"valor": 37
+			},
+			"tmax": {
+				"unitats": "°C",
+				"valor": 17.0
+			},
+			"tmin": {
+				"unitats": "°C",
+				"valor": 8.7
+			},
+			"estatCel": {
+				"simbol": 4
+			}
+		}
+	}]
+}, {
+	"codi": "171181",
+	"dies": [{
+		"data": "2016-01-01T00:00Z",
+		"variables": {
+			"precipitacio": {
+				"unitat": "%",
+				"valor": 39
+			},
+			"tmax": {
+				"unitats": "°C",
+				"valor": 14.4
+			},
+			"tmin": {
+				"unitats": "°C",
+				"valor": 7.6
+			},
+			"estatCel": {
+				"simbol": 3
+			}
+		}
+	}, {
+		"data": "2016-01-02T00:00Z",
+		"variables": {
+			"precipitacio": {
+				"unitat": "%",
+				"valor": 45
+			},
+			"tmax": {
+				"unitats": "°C",
+				"valor": 16.2
+			},
+			"tmin": {
+				"unitats": "°C",
+				"valor": 8.1
+			},
+			"estatCel": {
+				"simbol": 2
+			}
+		}
+	}]
+}, {
+	"codi": "080898",
+	"dies": [{
+		"data": "2016-01-01T00:00Z",
+		"variables": {
+			"precipitacio": {
+				"unitat": "%",
+				"valor": 50
+			},
+			"tmax": {
+				"unitats": "°C",
+				"valor": 14.6
+			},
+			"tmin": {
+				"unitats": "°C",
+				"valor": 7.7
+			},
+			"estatCel": {
+				"simbol": 2
+			}
+		}
+	}, {
+		"data": "2016-01-02T00:00Z",
+		"variables": {
+			"precipitacio": {
+				"unitat": "%",
+				"valor": 31
+			},
+			"tmax": {
+				"unitats": "°C",
+				"valor": 17.1
+			},
+			"tmin": {
+				"unitats": "°C",
+				"valor": 9.2
+			},
+			"estatCel": {
+				"simbol": 1
+			}
+		}
+	}]
+}, {
+	"codi": "171143",
+	"dies": [{
+		"data": "2016-01-01T00:00Z",
+		"variables": {
+			"precipitacio": {
+				"unitat": "%",
+				"valor": 38
+			},
+			"tmax": {
+				"unitats": "°C",
+				"valor": 12.9
+			},
+			"tmin": {
+				"unitats": "°C",
+				"valor": 3.2
+			},
+			"estatCel": {
+				"simbol": 1
+			}
+		}
+	}, {
+		"data": "2016-01-02T00:00Z",
+		"variables": {
+			"precipitacio": {
+				"unitat": "%",
+				"valor": 50
+			},
+			"tmax": {
+				"unitats": "°C",
+				"valor": 14.1
+			},
+			"tmin": {
+				"unitats": "°C",
+				"valor": 3.7
+			},
+			"estatCel": {
+				"simbol": 1
+			}
+		}
+	}]
+}]

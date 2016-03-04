@@ -1,0 +1,45 @@
+[{
+	"codi": "080898",
+	"nom": "Gavà",
+	"coordenades": {
+		"latitud": 41.306150261955594,
+		"longitud": 2.0047944938734013
+	},
+	"comarca": {
+		"codi": 11,
+		"nom": "Baix Llobregat"
+	}
+}, {
+	"codi": "171143",
+	"nom": "Olot",
+	"coordenades": {
+		"latitud": 42.183206974623246,
+		"longitud": 2.484360846803343
+	},
+	"comarca": {
+		"codi": 19,
+		"nom": "Garrotxa"
+	}
+}, {
+	"codi": "171181",
+	"nom": "Palamós",
+	"coordenades": {
+		"latitud": 41.84669251271724,
+		"longitud": 3.1295841356597114
+	},
+	"comarca": {
+		"codi": 10,
+		"nom": "Baix Empordà"
+	}
+}, {
+	"codi": "082191",
+	"nom": "Vilassar de Mar",
+	"coordenades": {
+		"latitud": 41.502419981985646,
+		"longitud": 2.3925009436607394
+	},
+	"comarca": {
+		"codi": 21,
+		"nom": "Maresme"
+	}
+}]
