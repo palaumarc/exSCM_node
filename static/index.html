@@ -15,7 +15,7 @@
       <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="main.js"></script>
   </head>
-  <body ng-controller="mainController">
+  <body ng-controller="mainController" ng-init="init()">
     <div ng-controller="panelController">
       <div class="col-md-3 col-md-offset-3">
         <div ng-include="'forecastPanel.html'"></div>
