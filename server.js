@@ -7,7 +7,6 @@ app.use(express.static(__dirname + '/static'));
 var metadata = null;
 var weather_forecast = null;
 
-// Load data files
 fs.readFile("data/metadades_municipis.json", 'utf8', function (err, data) {
 	if (err) {
 		console.log("Error loading metadata_municipals");

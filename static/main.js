@@ -1,15 +1,9 @@
 var app = angular.module('meteocat',['ui.bootstrap']);
 
-app.factory('townMetadata', function ($http) {
-    return $http.get('/municipis/metadades');
-});
-
-app.controller('panelController', function($scope, $http, townMetadata) {
-
-    $scope.town = {};
+app.controller('mainController', function($scope, $http) {
     $scope.town_metadata = {};
 
-    townMetadata.then(
+    $http.get('/municipis/metadades').then(
         function success(response) {
             $scope.town_metadata = response.data;
         }, 
@@ -17,6 +11,11 @@ app.controller('panelController', function($scope, $http, townMetadata) {
             console.error(response);
         }
     )
+})
+
+app.controller('panelController', function($scope, $http) {
+
+    $scope.town = {};
 
     $scope.getTownForecast = function(id) {
         $http.get('/municipis/' + id).then(
