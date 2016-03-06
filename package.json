@@ -1,0 +1,22 @@
+{
+  "name"        : "weather_forecast_comparator",
+  "version"     : "0.0.1",
+  "author"      : "Marc Palau",
+  "description" : "Simple weather forecast comparator between different towns in Catalonia. Using a fix dataset",
+
+  "private"     : true,
+
+  "scripts": {
+    "start"     : "node server.js"
+  },
+
+  "dependencies" : {
+    "express"   : "4.13.x"
+  },
+
+  "license"     : "BSD2",
+
+  "engines": {
+    "node"      : ">=5.7"
+  }
+}
