@@ -1,6 +1,9 @@
 ## Synopsis
 
-Simple weather forecast comparator between different towns in Catalonia. Using a fix dataset
+Simple weather forecast comparator between different towns in Catalonia using a fix dataset.
+
+This guide has only been tested in a Ubuntu 14.04 LTS x64 environment.
+
 
 ## Installation
 
@@ -25,7 +28,7 @@ After that, install front-end dependencies. To do it we will use Bower, which wi
     $ npm install -g bower
     $ bower install
 
-## Sevrice execution
+## Service execution
 
 In order to start the server, execute this from root folder. It will start the server, running on 8080 port.
 
