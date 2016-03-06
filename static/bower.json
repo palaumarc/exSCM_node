@@ -1,10 +1,14 @@
 {
-  "name": "weather_forecast_comparator_web_client_js_modules",
-  "description": "Weather Forecast Comparator client-side JS dependencies",
-  "dependencies": {
-    "angular": "1.5",
-    "bootstrap":"3.3.6",
-    "angular-bootstrap":"1.2.4"
+  "name"          : "weather_forecast_comparator_web_client_js_modules",
+  "version"       : "0.0.1",
+  "author"        : "Marc Palau",
+  "description"   : "Weather Forecast Comparator client-side JS dependencies",
+
+  "dependencies"  : {
+    "angular"           : "1.5",
+    "bootstrap"         : "3.3.6",
+    "angular-bootstrap" : "1.2.4"
   },
-  "private": true
+
+  "private"       : true
 }
