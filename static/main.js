@@ -16,16 +16,20 @@ meteocat.controller('mainController', function($scope, $http) {
         )
     }
 
-    $scope.getTownForecast = function(id) {
+    $scope.getTownForecast = function(panelId, id) {
         $http.get('/municipis/' + id).then(
             function success(response) {
                 var town = $scope.town_metadata.find(function (obj) {
                    return obj.codi === id;
                 });
 
-                $scope.town.name = town.nom;
-                $scope.town.region = town.comarca.nom;
-                $scope.town.dies = response.data.dies;
+                if ($scope.town[panelId] == undefined) {
+                    $scope.town[panelId] = {};
+                }
+
+                $scope.town[panelId].name = town.nom;
+                $scope.town[panelId].region = town.comarca.nom;
+                $scope.town[panelId].dies = response.data.dies;
             }, 
             function error(response) {
                 console.error(response.data);
