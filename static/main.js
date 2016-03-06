@@ -7,7 +7,7 @@ app.controller('mainController', function($scope, $http) {
         $http.get('/municipis/metadades').then(
             function success(response) {
                 $scope.town_metadata = response.data;
-                $scope.town_metadata.forEach(function(town){
+                $scope.town_metadata.forEach(function(town) {
                     town["active"] = false;
                 })
             }, 
@@ -21,22 +21,35 @@ app.controller('mainController', function($scope, $http) {
 app.controller('panelController', function($scope, $http) {
 
     $scope.town = {};
+    $scope.noSelect = {};
 
-    $scope.getTownForecast = function(id) {
+    $scope.getTownForecast = function(id, lastId) {
+
         $http.get('/municipis/' + id).then(
             function success(response) {
-                var town = $scope.town_metadata.find(function (obj) {
-                   return obj.codi === id;
-                });
 
-                $scope.town.name = town.nom;
-                $scope.town.region = town.comarca.nom;
-                $scope.town.dies = response.data.dies;
-                town.active = true;
+                $scope.town_metadata.forEach(function(town){
+
+                    if (town.codi == id) {
+                        $scope.town.name = town.nom;
+                        $scope.town.region = town.comarca.nom;
+                        $scope.town.dies = response.data.dies;
+                        town.active = true;
+                    }
+
+                    if (town.codi == lastId) {
+                        town.active = false;
+                    }
+
+                })
             }, 
             function error(response) {
                 console.error(response.data);
             }
         )
+    }
+
+    $scope.getCurrentTown = function() {
+        return $scope.town;
     }
 });

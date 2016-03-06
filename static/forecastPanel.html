@@ -3,8 +3,8 @@
   <div class="panel-body">
     <div class="form-group">
       <label for="selectedTown">Municipi:</label>
-      <select class="form-control" name="selectedTown" id="selectedTown" ng-model="selectedTown" ng-change="getTownForecast(selectedTown)">
-        <option ng-repeat="town in town_metadata" value="{{town.codi}}">{{town.nom}}</option>
+      <select class="form-control" name="selectedTown" id="selectedTown" ng-model="selectedTown" ng-change="getTownForecast(selectedTown, '{{selectedTown}}')">
+        <option ng-repeat="town in town_metadata" ng-if="selectedTown == town.codi || !town.active" value="{{town.codi}}">{{town.nom}}</option>
       </select><br>
       <label for="selectedRegion">Comarca:</label>
       <h5 id="selectedRegion">{{town.region}}</h5>
