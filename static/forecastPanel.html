@@ -1,0 +1,36 @@
+<!-- Panel 1 -->
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="form-group">
+      <label for="selectedTown">Municipi:</label>
+      <select class="form-control" name="selectedTown" id="selectedTown" ng-model="selectedTown" ng-change="getTownForecast(selectedTown)">
+        <option ng-repeat="town in town_metadata" value="{{town.codi}}">{{town.nom}}</option>
+      </select><br>
+      <label for="selectedRegion">Comarca:</label>
+      <h5 id="selectedRegion">{{town.region}}</h5>
+    </div>
+    <div class="row">
+      <uib-tabset justified="true">
+        <uib-tab ng-repeat="dia in town.dies" heading="{{ dia.data | date : 'dd/MM/yyyy'}}">
+          <div class="col-md-6">
+            <br>
+            <img src="/img/{{dia.variables.estatCel.simbol}}.png" class="img-responsive center-block" alt="Responsive image">
+            <h3 class="text-center">Estat del cel</h3>
+          </div>
+          <div class="col-md-6">
+            <div class"row">
+              <h3 class="text-center">Precipitació</h3>
+            </div>
+            <div class"row">
+                <uib-progressbar class="progress-striped active" value="dia.variables.precipitacio.valor">{{dia.variables.precipitacio.valor}} {{dia.variables.precipitacio.unitat}}</uib-progressbar>
+            </div>
+            <div class="row">
+              <h2 class="text-danger text-center">{{dia.variables.tmax.valor}} {{dia.variables.tmax.unitats}}</h2>
+              <h2 class="text-primary text-center">{{dia.variables.tmin.valor}} {{dia.variables.tmin.unitats}}</h2>
+            </div>
+          </div>
+        </uib-tab>
+      </uib-tabset>
+    </div>
+  </div>
+</div>
