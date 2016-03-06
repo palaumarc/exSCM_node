@@ -1,6 +1,6 @@
-var meteocat = angular.module('meteocat',['ui.bootstrap']);
+var app = angular.module('meteocat',['ui.bootstrap']);
 
-meteocat.controller('mainController', function($scope, $http) {
+app.controller('panelController', function($scope, $http) {
 
     $scope.town_metadata = {};
     $scope.town = {};
@@ -16,26 +16,20 @@ meteocat.controller('mainController', function($scope, $http) {
         )
     }
 
-    $scope.getTownForecast = function(panelId, id) {
+    $scope.getTownForecast = function(id) {
         $http.get('/municipis/' + id).then(
             function success(response) {
                 var town = $scope.town_metadata.find(function (obj) {
                    return obj.codi === id;
                 });
 
-                if ($scope.town[panelId] == undefined) {
-                    $scope.town[panelId] = {};
-                }
-
-                $scope.town[panelId].name = town.nom;
-                $scope.town[panelId].region = town.comarca.nom;
-                $scope.town[panelId].dies = response.data.dies;
+                $scope.town.name = town.nom;
+                $scope.town.region = town.comarca.nom;
+                $scope.town.dies = response.data.dies;
             }, 
             function error(response) {
                 console.error(response.data);
             }
         )
     }
-
-
 });
