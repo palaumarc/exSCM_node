@@ -7,23 +7,8 @@ app.use(express.static(__dirname + '/static'));
 var metadata = null;
 var weather_forecast = null;
 
-fs.readFile("data/metadades_municipis.json", 'utf8', function (err, data) {
-	if (err) {
-		console.log("Error loading metadata_municipals");
-		process.exit(1);
-	} else {
-		metadata = JSON.parse(data);
-	}
-});
-
-fs.readFile("data/prediccions_municipals.json", 'utf8', function (err, data) {
-	if (err) {
-		console.log("Error loading prediccions_municipals");
-		process.exit(1);
-	} else {
-		weather_forecast = JSON.parse(data);
-	}
-});
+metadata = fs.readFileSync("data/metadades_municipis.json", "utf8");
+weather_forecast = JSON.parse(fs.readFileSync("data/prediccions_municipals.json", "utf8"));
 
 app.get('/municipis/metadades', function (req, res) {
     res.send(metadata);
@@ -34,7 +19,7 @@ app.get('/municipis/:id', function (req, res) {
 	   return obj.codi === req.params.id;
 	});
 
-    res.send(forecast);
+  res.send(forecast);
 })
 
 app.get('/', function(req, res) {
